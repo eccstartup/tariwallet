@@ -30,6 +30,7 @@ cp .env.example .env
 
 ### Wallet Dashboard
 - View balances with full decimal precision
+- Assets displayed with type icons (💰 fungible, 🖼 NFT) and divisibility info
 - Faucet: claim free test coins (tTARI)
 - Mint NFTs from the built-in faucet
 - Quick actions: Send, Receive, Accounts, History
@@ -51,14 +52,15 @@ cp .env.example .env
 
 ### Templates (Smart Contracts)
 - **Browse** published templates on the network
-- **Publish** new templates by uploading `.wasm` files
-- **Interact** with any template function:
-  - Each function shows its arguments with types
-  - Fill in arguments and call directly
-  - Supports `Amount`, `String`, `ResourceAddress`, `PublicKey`, `Hash`, and all other Tari ABI types
-  - Dry-run mode enabled by default for safe testing
-  - Functions with `&self` / `&mut self` use `CallMethod` (needs component address)
-  - Functions without self use `CallFunction` (creates new component)
+- **Publish** new templates by uploading `.wasm` files (fee defaults to 1,000,000 µTARI)
+- **Interact** with any template function directly:
+  - Each function shows its argument names and types
+  - Fill in arguments and call — all calls are real on-chain transactions
+  - Read functions (balance, total_supply, resource_address) default to 100,000 µTARI fee
+  - Write functions (mint, take_free_coins, burn_coins) default to 1,000,000 µTARI fee
+  - Functions with `&self` / `&mut self` use `CallMethod` — need a component address (obtained from a prior mint)
+  - Functions without self use `CallFunction` — creates a new component
+  - Results appear inline after confirmation, showing all return values
 
 ### Settings
 - Toggle dark/light theme
