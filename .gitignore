@@ -1,0 +1,14 @@
+node_modules/
+dist/
+*.tsbuildinfo
+.DS_Store
+.claude/
+.pnpm-store/
+.idea/
+.vscode/
+*.log
+*.env
+*.env.local
+*.env.development
+*.env.test
+*.env.production
